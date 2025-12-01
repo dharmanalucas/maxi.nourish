@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxi Nourish | Premium Meal Prep Plans</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #2D5A3D;
+            --forest-dark: #1E3D29;
+            --forest-light: #3D7A52;
+            --sage: #87A878;
+            --sage-light: #B8D4A8;
+            --cream: #FAF8F5;
+            --cream-dark: #F0EDE8;
+            --bark: #5C4033;
+            --bark-light: #8B6914;
+            --espresso: #3C2415;
+            --gold: #C9A227;
+            --white: #FFFFFF;
+            --text: #2A2A2A;
+            --text-light: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(45, 90, 61, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--forest);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--forest);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--cream);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--forest);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--forest);
+        }
+
+        .nav-cta {
+            background: var(--forest);
+            color: var(--white) !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--forest-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(45, 90, 61, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--forest);
+            margin: 6px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(135, 168, 120, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-badge::before {
+            content: '🌿';
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--espresso);
+        }
+
+        .hero h1 span {
+            color: var(--forest);
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--forest);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--forest-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(45, 90, 61, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--forest);
+            border: 2px solid var(--forest);
+        }
+
+        .btn-secondary:hover {
+            background: var(--forest);
+            color: var(--white);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero-image-container {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--forest) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 6rem;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-card-1 {
+            top: 10%;
+            right: -30px;
+            animation-delay: 0s;
+        }
+
+        .floating-card-2 {
+            bottom: 15%;
+            left: -30px;
+            animation-delay: 1s;
+        }
+
+        .floating-card h4 {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .floating-card p {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--forest);
+            margin: 0;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--forest);
+            padding: 3rem 2rem;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Plans Section */
+        .plans-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--sage-light);
+            color: var(--forest-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            color: var(--espresso);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Plan Toggle */
+        .plan-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .toggle-container {
+            display: flex;
+            background: var(--cream);
+            padding: 0.5rem;
+            border-radius: 50px;
+            gap: 0.25rem;
+        }
+
+        .toggle-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: transparent;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            color: var(--text-light);
+        }
+
+        .toggle-btn.active {
+            background: var(--forest);
+            color: var(--white);
+        }
+
+        .save-badge {
+            background: var(--gold);
+            color: var(--espresso);
+            padding: 0.25rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-left: 0.5rem;
+        }
+
+        /* Plans Grid */
+        .plans-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .plan-card {
+            background: var(--cream);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-card.featured {
+            background: var(--forest);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .plan-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .plan-card.featured .plan-price,
+        .plan-card.featured .plan-title,
+        .plan-card.featured .plan-description,
+        .plan-card.featured .feature-item {
+            color: var(--white);
+        }
+
+        .plan-card.featured .feature-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--espresso);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .plan-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--sage-light);
+        }
+
+        .plan-card.featured .plan-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .plan-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-price {
+            margin-bottom: 2rem;
+        }
+
+        .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .price-period {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            opacity: 0.5;
+            font-size: 1.25rem;
+            margin-left: 0.5rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .plan-card.featured .feature-item {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--sage-light);
+            color: var(--forest);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .plan-btn {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid;
+            font-family: inherit;
+        }
+
+        .plan-btn-primary {
+            background: var(--forest);
+            color: var(--white);
+            border-color: var(--forest);
+        }
+
+        .plan-btn-primary:hover {
+            background: var(--forest-dark);
+            border-color: var(--forest-dark);
+        }
+
+        .plan-card.featured .plan-btn-primary {
+            background: var(--white);
+            color: var(--forest);
+            border-color: var(--white);
+        }
+
+        .plan-card.featured .plan-btn-primary:hover {
+            background: var(--cream);
+            border-color: var(--cream);
+        }
+
+        /* Meals Customizer */
+        .customizer-section {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .customizer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .meals-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .meal-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .meal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .meal-card.selected {
+            border-color: var(--forest);
+        }
+
+        .meal-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .meal-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--forest);
+        }
+
+        .meal-info {
+            padding: 1.25rem;
+        }
+
+        .meal-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .meal-macros {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .macro {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .macro-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .macro-dot.protein { background: var(--forest); }
+        .macro-dot.carbs { background: var(--bark); }
+        .macro-dot.fat { background: var(--gold); }
+
+        .meal-select-indicator {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--sage);
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .meal-card.selected .meal-select-indicator {
+            background: var(--forest);
+            border-color: var(--forest);
+            color: var(--white);
+        }
+
+        /* How It Works */
+        .how-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .steps-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-card:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -1rem;
+            width: calc(100% - 80px);
+            height: 2px;
+            background: linear-gradient(90deg, var(--sage) 0%, var(--sage-light) 100%);
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--forest);
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .step-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 6rem 2rem;
+            background: var(--forest);
+            color: var(--white);
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--sage);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+            color: var(--text);
+        }
+
+        .faq-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--sage-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--bark) 0%, var(--espresso) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            background: var(--white);
+            color: var(--espresso);
+            padding: 1.25rem 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-btn:hover {
+            background: var(--cream);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--espresso);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            opacity: 0.7;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--forest);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--white);
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            color: var(--espresso);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--cream);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--cream-dark);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--cream-dark);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--forest);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .subscription-summary {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .summary-row:last-child {
+            margin-bottom: 0;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--cream-dark);
+            font-weight: 700;
+        }
+
+        .subscribe-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--forest);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .subscribe-btn:hover {
+            background: var(--forest-dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .plan-card.featured {
+                transform: none;
+            }
+
+            .plan-card.featured:hover {
+                transform: translateY(-10px);
+            }
+
+            .meals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .step-card:not(:last-child)::after {
+                display: none;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .meals-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand {
+                max-width: 100%;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .toggle-container {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                </div>
+                Maxi Nourish
+            </a>
+            <ul class="nav-links">
+                <li><a href="#plans">Plans</a></li>
+                <li><a href="#meals">Our Meals</a></li>
+                <li><a href="#how">How It Works</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#" class="nav-cta">Get Started</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">Premium Organic Ingredients</span>
+                <h1>Fuel Your Body,<br><span>Elevate Your Life</span></h1>
+                <p>Chef-prepared, macro-balanced meals delivered fresh to your door. No cooking, no counting, no compromise.</p>
+                <div class="hero-buttons">
+                    <a href="#plans" class="btn btn-primary">
+                        View Plans
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#how" class="btn btn-secondary">How It Works</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <div class="hero-image">🥗</div>
+                </div>
+                <div class="floating-card floating-card-1">
+                    <h4>Protein</h4>
+                    <p>45g per meal</p>
+                </div>
+                <div class="floating-card floating-card-2">
+                    <h4>Fresh Daily</h4>
+                    <p>Never Frozen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">10,000+</div>
+                <div class="stat-label">Meals Delivered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Customer Satisfaction</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Meal Varieties</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Fresh Ingredients</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans-section" id="plans">
+        <div class="section-header">
+            <span class="section-tag">Choose Your Plan</span>
+            <h2>Simple, Flexible Pricing</h2>
+            <p>Select the perfect plan for your lifestyle. All plans include free delivery and the flexibility to pause or cancel anytime.</p>
+        </div>
+
+        <div class="plan-toggle">
+            <div class="toggle-container">
+                <button class="toggle-btn active" data-billing="weekly">Weekly</button>
+                <button class="toggle-btn" data-billing="monthly">
+                    Monthly
+                    <span class="save-badge">Save 15%</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="plans-grid">
+            <!-- Starter Plan -->
+            <div class="plan-card" data-plan="starter">
+                <div class="plan-icon">🌱</div>
+                <h3 class="plan-title">Starter</h3>
+                <p class="plan-description">Perfect for trying us out or supplementing your meals.</p>
+                <div class="plan-price">
+                    <span class="price-amount" data-weekly="£49" data-monthly="£166">£49</span>
+                    <span class="price-period">/week</span>
+                </div>
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        6 meals per week
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        Choose your meals
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        Free delivery
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        Pause anytime
+                    </li>
+                </ul>
+                <button class="plan-btn plan-btn-primary" onclick="openModal('Starter', 49, 6)">Subscribe Now</button>
+            </div>
+
+            <!-- Performance Plan -->
+            <div class="plan-card featured" data-plan="performance">
+                <span class="popular-badge">Most Popular</span>
+                <div class="plan-icon">🔥</div>
+                <h3 class="plan-title">Performance</h3>
+                <p class="plan-description">Our most popular plan for serious results.</p>
+                <div class="plan-price">
+                    <span class="price-amount" data-weekly="£89" data-monthly="£302">£89</span>
+                    <span class="price-period">/week</span>
+                </div>
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        12 meals per week
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        Choose your meals
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        Priority delivery slots
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        Nutrition consultation
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        Pause anytime
+                    </li>
+                </ul>
+                <button class="plan-btn plan-btn-primary" onclick="openModal('Performance', 89, 12)">Subscribe Now</button>
+            </div>
+
+            <!-- Elite Plan -->
+            <div class="plan-card" data-plan="elite">
+                <div class="plan-icon">👑</div>
+                <h3 class="plan-title">Elite</h3>
+                <p class="plan-description">Complete nutrition coverage for peak performance.</p>
+                <div class="plan-price">
+                    <span class="price-amount" data-weekly="£139" data-monthly="£472">£139</span>
+                    <span class="price-period">/week</span>
+                </div>
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        21 meals per week
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        Choose your meals
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        Same-day delivery
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        Personal nutritionist
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        Custom macro targets
+                    </li>
+                </ul>
+                <button class="plan-btn plan-btn-primary" onclick="openModal('Elite', 139, 21)">Subscribe Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meals Customizer -->
+    <section class="customizer-section" id="meals">
+        <div class="customizer-container">
+            <div class="section-header">
+                <span class="section-tag">Our Menu</span>
+                <h2>Chef-Crafted Meals</h2>
+                <p>Every meal is prepared fresh by our team of professional chefs using only premium, organic ingredients.</p>
+            </div>
+
+            <div class="meals-grid">
+                <div class="meal-card" onclick="toggleMeal(this)">
+                    <div class="meal-image">
+                        🍗
+                        <span class="meal-tag">High Protein</span>
+                        <div class="meal-select-indicator">✓</div>
+                    </div>
+                    <div class="meal-info">
+                        <h4 class="meal-name">Grilled Chicken & Sweet Potato</h4>
+                        <div class="meal-macros">
+                            <span class="macro"><span class="macro-dot protein"></span>48g protein</span>
+                            <span class="macro"><span class="macro-dot carbs"></span>35g carbs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-card" onclick="toggleMeal(this)">
+                    <div class="meal-image">
+                        🐟
+                        <span class="meal-tag">Omega Rich</span>
+                        <div class="meal-select-indicator">✓</div>
+                    </div>
+                    <div class="meal-info">
+                        <h4 class="meal-name">Teriyaki Salmon Bowl</h4>
+                        <div class="meal-macros">
+                            <span class="macro"><span class="macro-dot protein"></span>42g protein</span>
+                            <span class="macro"><span class="macro-dot fat"></span>18g fats</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-card" onclick="toggleMeal(this)">
+                    <div class="meal-image">
+                        🥩
+                        <span class="meal-tag">Muscle Gain</span>
+                        <div class="meal-select-indicator">✓</div>
+                    </div>
+                    <div class="meal-info">
+                        <h4 class="meal-name">Lean Steak & Quinoa</h4>
+                        <div class="meal-macros">
+                            <span class="macro"><span class="macro-dot protein"></span>52g protein</span>
+                            <span class="macro"><span class="macro-dot carbs"></span>40g carbs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-card" onclick="toggleMeal(this)">
+                    <div class="meal-image">
+                        🍛
+                        <span class="meal-tag">Low Carb</span>
+                        <div class="meal-select-indicator">✓</div>
+                    </div>
+                    <div class="meal-info">
+                        <h4 class="meal-name">Thai Green Curry</h4>
+                        <div class="meal-macros">
+                            <span class="macro"><span class="macro-dot protein"></span>38g protein</span>
+                            <span class="macro"><span class="macro-dot carbs"></span>22g carbs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-card" onclick="toggleMeal(this)">
+                    <div class="meal-image">
+                        🥗
+                        <span class="meal-tag">Vegan</span>
+                        <div class="meal-select-indicator">✓</div>
+                    </div>
+                    <div class="meal-info">
+                        <h4 class="meal-name">Mediterranean Falafel Bowl</h4>
+                        <div class="meal-macros">
+                            <span class="macro"><span class="macro-dot protein"></span>24g protein</span>
+                            <span class="macro"><span class="macro-dot carbs"></span>45g carbs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-card" onclick="toggleMeal(this)">
+                    <div class="meal-image">
+                        🍝
+                        <span class="meal-tag">Balanced</span>
+                        <div class="meal-select-indicator">✓</div>
+                    </div>
+                    <div class="meal-info">
+                        <h4 class="meal-name">Turkey Bolognese</h4>
+                        <div class="meal-macros">
+                            <span class="macro"><span class="macro-dot protein"></span>44g protein</span>
+                            <span class="macro"><span class="macro-dot carbs"></span>52g carbs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-card" onclick="toggleMeal(this)">
+                    <div class="meal-image">
+                        🌮
+                        <span class="meal-tag">Halal</span>
+                        <div class="meal-select-indicator">✓</div>
+                    </div>
+                    <div class="meal-info">
+                        <h4 class="meal-name">Spiced Lamb Kofta</h4>
+                        <div class="meal-macros">
+                            <span class="macro"><span class="macro-dot protein"></span>46g protein</span>
+                            <span class="macro"><span class="macro-dot fat"></span>16g fats</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-card" onclick="toggleMeal(this)">
+                    <div class="meal-image">
+                        🍲
+                        <span class="meal-tag">Comfort</span>
+                        <div class="meal-select-indicator">✓</div>
+                    </div>
+                    <div class="meal-info">
+                        <h4 class="meal-name">Honey Chilli Chicken</h4>
+                        <div class="meal-macros">
+                            <span class="macro"><span class="macro-dot protein"></span>40g protein</span>
+                            <span class="macro"><span class="macro-dot carbs"></span>48g carbs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section" id="how">
+        <div class="section-header">
+            <span class="section-tag">Simple Process</span>
+            <h2>How It Works</h2>
+            <p>Getting started with Maxi Nourish takes just a few minutes.</p>
+        </div>
+
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h4 class="step-title">Choose Your Plan</h4>
+                <p class="step-description">Select the plan that fits your lifestyle and goals.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h4 class="step-title">Pick Your Meals</h4>
+                <p class="step-description">Customize your weekly menu from our rotating selection.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h4 class="step-title">We Cook & Deliver</h4>
+                <p class="step-description">Fresh meals prepared and delivered to your door.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h4 class="step-title">Heat & Enjoy</h4>
+                <p class="step-description">Ready in 3 minutes. Restaurant quality, zero effort.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <span class="section-tag" style="background: rgba(255,255,255,0.2); color: white;">Reviews</span>
+            <h2 style="color: white;">What Our Customers Say</h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"The quality is unmatched. As someone who trains 6 days a week, having perfectly portioned, macro-balanced meals has been a game changer for my performance."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JT</div>
+                    <div class="author-info">
+                        <h4>James T.</h4>
+                        <p>Fitness Coach</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Finally found a meal prep that doesn't taste like meal prep. The Thai Green Curry is honestly better than most restaurants. Plus the convenience is unreal."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SK</div>
+                    <div class="author-info">
+                        <h4>Sophie K.</h4>
+                        <p>Marketing Director</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Lost 8kg in 2 months without feeling like I was on a diet. The variety keeps things interesting and the portion sizes are actually satisfying."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MR</div>
+                    <div class="author-info">
+                        <h4>Marcus R.</h4>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="section-header">
+            <span class="section-tag">FAQ</span>
+            <h2>Common Questions</h2>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    How does the subscription work?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Choose your plan and select your meals each week. We'll automatically prepare and deliver your order every week. You can pause, skip, or cancel anytime with no fees or commitments.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    When do you deliver?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We deliver across the UK every Sunday and Wednesday. You'll receive your meals fresh and ready to heat. Elite plan members have access to same-day delivery options.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How long do the meals last?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>All meals stay fresh in your fridge for 5 days. They can also be frozen for up to 3 months if you want to stock up. Reheating takes just 3 minutes in the microwave.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do you cater for dietary requirements?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely. We offer Halal, vegetarian, vegan, gluten-free, and dairy-free options. Every meal is clearly labelled with allergens and nutritional information.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I change my meals each week?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! You can customize your meal selection every week before the cut-off time (Wednesday midnight for Sunday delivery). If you don't select, we'll send your previous favourites.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Transform Your Nutrition?</h2>
+            <p>Join thousands of customers who've made healthy eating effortless.</p>
+            <a href="#plans" class="btn cta-btn">Start Your Journey</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">Maxi Nourish</div>
+                <p>Premium meal prep delivered fresh to your door. Fuel your body, elevate your life.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📸</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">📘</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Plans</h4>
+                <ul>
+                    <li><a href="#">Starter</a></li>
+                    <li><a href="#">Performance</a></li>
+                    <li><a href="#">Elite</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Chefs</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Delivery Info</a></li>
+                    <li><a href="#">Terms & Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Maxi Nourish. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Subscription Modal -->
+    <div class="modal-overlay" id="subscribeModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Start Your Subscription</h3>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="subscription-summary">
+                    <div class="summary-row">
+                        <span>Plan</span>
+                        <span id="summaryPlan">Performance</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Meals per week</span>
+                        <span id="summaryMeals">12 meals</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Weekly Total</span>
+                        <span id="summaryTotal">£89</span>
+                    </div>
+                </div>
+
+                <form id="subscribeForm" onsubmit="handleSubscribe(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" required placeholder="John">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" required placeholder="Smith">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" required placeholder="john@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" required placeholder="07XXX XXXXXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Delivery Address</label>
+                        <input type="text" required placeholder="123 Main Street, Manchester, M1 1AA">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferred Delivery Day</label>
+                        <select required>
+                            <option value="">Select a day</option>
+                            <option value="sunday">Sunday</option>
+                            <option value="wednesday">Wednesday</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dietary Requirements</label>
+                        <select>
+                            <option value="none">None</option>
+                            <option value="halal">Halal</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="gluten-free">Gluten Free</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="subscribe-btn">
+                        Confirm Subscription →
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Plan toggle
+        const toggleBtns = document.querySelectorAll('.toggle-btn');
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                toggleBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const billing = btn.dataset.billing;
+                document.querySelectorAll('.price-amount').forEach(price => {
+                    price.textContent = price.dataset[billing];
+                });
+                
+                document.querySelectorAll('.price-period').forEach(period => {
+                    period.textContent = billing === 'weekly' ? '/week' : '/month';
+                });
+            });
+        });
+
+        // Meal selection
+        function toggleMeal(card) {
+            card.classList.toggle('selected');
+        }
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                // Open clicked if wasn't active
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Modal functions
+        function openModal(plan, price, meals) {
+            document.getElementById('summaryPlan').textContent = plan;
+            document.getElementById('summaryMeals').textContent = meals + ' meals';
+            document.getElementById('summaryTotal').textContent = '£' + price;
+            document.getElementById('subscribeModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('subscribeModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on overlay click
+        document.getElementById('subscribeModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                closeModal();
+            }
+        });
+
+        // Handle subscription form
+        function handleSubscribe(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing! You will receive a confirmation email shortly.');
+            closeModal();
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
