@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maxi.Nourish | Premium Meal Prep Plans</title>
+    <title>Maxi.Nourish | Premium Meal Prep</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --forest: #2D5A3D;
             --forest-dark: #1E3D29;
-            --forest-light: #3D7A52;
             --sage: #87A878;
             --sage-light: #B8D4A8;
             --cream: #FAF8F5;
             --cream-dark: #F0EDE8;
             --bark: #5C4033;
-            --bark-light: #8B6914;
             --espresso: #3C2415;
             --gold: #C9A227;
             --white: #FFFFFF;
@@ -40,7 +38,7 @@
             background: var(--cream);
             color: var(--text);
             line-height: 1.6;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4 {
@@ -48,27 +46,16 @@
             font-weight: 600;
         }
 
-        /* Navigation */
+        /* Mobile-First Navigation */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(250, 248, 245, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(45, 90, 61, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
+            background: rgba(250, 248, 245, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.25rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -76,250 +63,43 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.75rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--forest);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--forest);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-icon svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--cream);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--forest);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--forest);
         }
 
         .nav-cta {
             background: var(--forest);
-            color: var(--white) !important;
-            padding: 0.75rem 1.5rem;
+            color: var(--white);
+            padding: 0.6rem 1.25rem;
             border-radius: 50px;
-            transition: all 0.3s ease !important;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
-        .nav-cta::after {
-            display: none !important;
-        }
-
-        .nav-cta:hover {
-            background: var(--forest-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(45, 90, 61, 0.3);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .mobile-menu-btn span {
-            display: block;
-            width: 25px;
-            height: 2px;
-            background: var(--forest);
-            margin: 6px 0;
-            transition: all 0.3s ease;
-        }
-
-        /* Hero Section */
+        /* Hero - Mobile First */
         .hero {
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
-            align-items: center;
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 80%;
-            height: 150%;
-            background: radial-gradient(ellipse, rgba(135, 168, 120, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            width: 100%;
-        }
-
-        .hero-content {
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--forest);
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .hero-badge::before {
-            content: '🌿';
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--espresso);
-        }
-
-        .hero h1 span {
-            color: var(--forest);
-            position: relative;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
-        }
-
-        .btn-primary {
-            background: var(--forest);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--forest-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(45, 90, 61, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--forest);
-            border: 2px solid var(--forest);
-        }
-
-        .btn-secondary:hover {
-            background: var(--forest);
-            color: var(--white);
-        }
-
-        .hero-visual {
-            position: relative;
-            animation: fadeInUp 1s ease 0.3s forwards;
-            opacity: 0;
-        }
-
-        .hero-image-container {
-            position: relative;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            flex-direction: column;
+            padding: 5rem 1.5rem 2rem;
+            background: var(--cream);
         }
 
         .hero-image {
             width: 100%;
-            height: 500px;
-            object-fit: cover;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 2rem;
             background: linear-gradient(135deg, var(--sage) 0%, var(--forest) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-size: 6rem;
+            font-size: 5rem;
         }
 
         .hero-image img {
@@ -328,204 +108,221 @@
             object-fit: cover;
         }
 
-        .floating-card {
-            position: absolute;
+        .hero-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
             background: var(--white);
-            padding: 1rem 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .floating-card-1 {
-            top: 10%;
-            right: -30px;
-            animation-delay: 0s;
-        }
-
-        .floating-card-2 {
-            bottom: 15%;
-            left: -30px;
-            animation-delay: 1s;
-        }
-
-        .floating-card h4 {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-bottom: 0.25rem;
-        }
-
-        .floating-card p {
-            font-size: 1.25rem;
-            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
             color: var(--forest);
-            margin: 0;
+            margin-bottom: 1.25rem;
+            width: fit-content;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        /* Stats Bar */
-        .stats-bar {
+        .hero h1 {
+            font-size: 2.25rem;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            color: var(--espresso);
+        }
+
+        .hero h1 span {
+            color: var(--forest);
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            transition: transform 0.2s ease;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
             background: var(--forest);
-            padding: 3rem 2rem;
+            color: var(--white);
         }
 
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .btn-secondary {
+            background: transparent;
+            color: var(--forest);
+            border: 2px solid var(--forest);
+        }
+
+        /* Stats - Simplified for mobile */
+        .stats {
+            background: var(--forest);
+            padding: 2rem 1.5rem;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
 
-        .stat-item {
+        .stat {
             text-align: center;
             color: var(--white);
         }
 
         .stat-number {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             opacity: 0.9;
         }
 
-        /* Plans Section */
-        .plans-section {
-            padding: 6rem 2rem;
-            background: var(--white);
+        /* Section styling */
+        section {
+            padding: 3.5rem 1.5rem;
         }
 
         .section-header {
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
+            margin-bottom: 2rem;
         }
 
         .section-tag {
             display: inline-block;
             background: var(--sage-light);
             color: var(--forest-dark);
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.9rem;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .section-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1rem;
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
             color: var(--espresso);
         }
 
         .section-header p {
             color: var(--text-light);
-            font-size: 1.1rem;
+            font-size: 0.95rem;
         }
 
-        /* Plans Grid */
+        /* Plans - Clean cards for mobile */
+        .plans-section {
+            background: var(--white);
+        }
+
         .plans-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
         }
 
         .plan-card {
             background: var(--cream);
-            border-radius: 24px;
-            padding: 2.5rem;
+            border-radius: 20px;
+            padding: 1.75rem;
             position: relative;
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
-        }
-
-        .plan-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
 
         .plan-card.featured {
             background: var(--forest);
             color: var(--white);
-            transform: scale(1.05);
-        }
-
-        .plan-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        .plan-card.featured .plan-price,
-        .plan-card.featured .plan-title,
-        .plan-card.featured .plan-description,
-        .plan-card.featured .feature-item,
-        .plan-card.featured .price-note {
-            color: var(--white);
-        }
-
-        .plan-card.featured .feature-icon {
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--white);
         }
 
         .popular-badge {
             position: absolute;
-            top: -12px;
+            top: -10px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--gold);
             color: var(--espresso);
-            padding: 0.5rem 1.25rem;
+            padding: 0.35rem 1rem;
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: 700;
         }
 
+        .plan-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
         .plan-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            margin-bottom: 1.5rem;
             background: var(--sage-light);
+            flex-shrink: 0;
         }
 
         .plan-card.featured .plan-icon {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255,255,255,0.2);
         }
 
-        .plan-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+        .plan-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.2rem;
         }
 
-        .plan-description {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
+        .plan-info p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin: 0;
         }
 
         .plan-price {
-            margin-bottom: 2rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+            margin-bottom: 0.5rem;
         }
 
         .price-amount {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
         }
 
@@ -535,39 +332,29 @@
         }
 
         .price-note {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-bottom: 1.25rem;
         }
 
-        .features-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .feature-item {
+        .plan-features {
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
         }
 
-        .plan-card.featured .feature-item {
-            border-bottom-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: var(--sage-light);
+        .feature-pill {
+            background: rgba(45, 90, 61, 0.1);
+            padding: 0.4rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
             color: var(--forest);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            flex-shrink: 0;
+        }
+
+        .plan-card.featured .feature-pill {
+            background: rgba(255,255,255,0.2);
+            color: var(--white);
         }
 
         .plan-btn {
@@ -577,200 +364,172 @@
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid;
+            border: none;
             font-family: inherit;
-        }
-
-        .plan-btn-primary {
             background: var(--forest);
             color: var(--white);
-            border-color: var(--forest);
         }
 
-        .plan-btn-primary:hover {
-            background: var(--forest-dark);
-            border-color: var(--forest-dark);
-        }
-
-        .plan-card.featured .plan-btn-primary {
+        .plan-card.featured .plan-btn {
             background: var(--white);
             color: var(--forest);
-            border-color: var(--white);
         }
 
-        .plan-card.featured .plan-btn-primary:hover {
-            background: var(--cream);
-            border-color: var(--cream);
-        }
-
-        /* How It Works */
+        /* How It Works - Vertical on mobile */
         .how-section {
-            padding: 6rem 2rem;
             background: var(--cream);
         }
 
-        .steps-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        .step-card {
-            text-align: center;
-            position: relative;
-        }
-
-        .step-card:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            top: 40px;
-            right: -1rem;
-            width: calc(100% - 80px);
-            height: 2px;
-            background: linear-gradient(90deg, var(--sage) 0%, var(--sage-light) 100%);
+        .step {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
         }
 
         .step-number {
-            width: 80px;
-            height: 80px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: var(--forest);
             color: var(--white);
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.25rem;
             font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            position: relative;
-            z-index: 1;
+            flex-shrink: 0;
         }
 
-        .step-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
+        .step-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
         }
 
-        .step-description {
+        .step-content p {
+            font-size: 0.9rem;
             color: var(--text-light);
-            font-size: 0.95rem;
+            margin: 0;
         }
 
-        /* Testimonials */
+        /* Testimonials - Single column swipeable feel */
         .testimonials-section {
-            padding: 6rem 2rem;
             background: var(--forest);
             color: var(--white);
         }
 
-        .testimonials-grid {
-            max-width: 1200px;
-            margin: 3rem auto 0;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+        .testimonials-section .section-tag {
+            background: rgba(255,255,255,0.2);
+            color: var(--white);
         }
 
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .testimonials-section h2 {
+            color: var(--white);
+        }
+
+        .testimonials {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .testimonial {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 16px;
         }
 
         .testimonial-stars {
             color: var(--gold);
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
         }
 
         .testimonial-text {
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            opacity: 0.95;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
         .author-avatar {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: var(--sage);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.25rem;
-        }
-
-        .author-info h4 {
             font-size: 1rem;
-            margin-bottom: 0.25rem;
         }
 
-        .author-info p {
-            font-size: 0.85rem;
+        .author-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .author-role {
+            font-size: 0.8rem;
             opacity: 0.7;
-            margin: 0;
         }
 
-        /* FAQ Section */
+        /* FAQ - Clean accordion */
         .faq-section {
-            padding: 6rem 2rem;
             background: var(--white);
         }
 
-        .faq-container {
-            max-width: 800px;
-            margin: 3rem auto 0;
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
         .faq-item {
             background: var(--cream);
-            border-radius: 16px;
-            margin-bottom: 1rem;
+            border-radius: 14px;
             overflow: hidden;
         }
 
         .faq-question {
             width: 100%;
-            padding: 1.5rem;
+            padding: 1.25rem;
             background: none;
             border: none;
             text-align: left;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 1rem;
             font-family: inherit;
             color: var(--text);
         }
 
         .faq-icon {
-            width: 30px;
-            height: 30px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             background: var(--sage-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease;
+            font-size: 1.25rem;
             flex-shrink: 0;
+            transition: transform 0.3s ease;
         }
 
         .faq-item.active .faq-icon {
@@ -780,148 +539,107 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
+            transition: max-height 0.3s ease;
         }
 
         .faq-item.active .faq-answer {
-            max-height: 300px;
+            max-height: 200px;
         }
 
         .faq-answer p {
-            padding: 0 1.5rem 1.5rem;
+            padding: 0 1.25rem 1.25rem;
+            font-size: 0.9rem;
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         /* CTA Section */
         .cta-section {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, var(--bark) 0%, var(--espresso) 100%);
+            background: var(--espresso);
             color: var(--white);
             text-align: center;
         }
 
-        .cta-container {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
         .cta-section h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1rem;
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
         }
 
         .cta-section p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             opacity: 0.9;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .cta-btn {
             background: var(--white);
             color: var(--espresso);
-            padding: 1.25rem 2.5rem;
-            font-size: 1.1rem;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
         }
 
-        .cta-btn:hover {
-            background: var(--cream);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Footer */
+        /* Footer - Simplified */
         footer {
             background: var(--espresso);
             color: var(--white);
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .footer-brand {
-            max-width: 300px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
         }
 
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 700;
-            color: var(--white);
             margin-bottom: 1rem;
         }
 
-        .footer-brand p {
+        .footer-tagline {
+            font-size: 0.9rem;
             opacity: 0.7;
-            line-height: 1.7;
             margin-bottom: 1.5rem;
         }
 
         .social-links {
             display: flex;
+            justify-content: center;
             gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.1);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.25rem;
+            text-decoration: none;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
             color: var(--white);
             text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--forest);
-            transform: translateY(-3px);
-        }
-
-        .footer-column h4 {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 600;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-column a {
-            color: var(--white);
-            text-decoration: none;
+            font-size: 0.85rem;
             opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        .footer-column a:hover {
-            opacity: 1;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 3rem;
-            padding-top: 2rem;
-            text-align: center;
-            opacity: 0.7;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            opacity: 0.5;
         }
 
-        /* Full Page Modal for Meal Selection */
+        /* Order Page Overlay */
         .page-overlay {
             position: fixed;
             top: 0;
@@ -932,7 +650,7 @@
             z-index: 2000;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             overflow-y: auto;
         }
 
@@ -943,188 +661,186 @@
 
         .page-header {
             background: var(--white);
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid var(--cream-dark);
-            position: sticky;
-            top: 0;
-            z-index: 10;
+            padding: 1rem 1.25rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .page-header h2 {
-            font-size: 1.5rem;
-            color: var(--espresso);
+            font-size: 1.15rem;
         }
 
         .page-close {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: var(--cream);
             border: none;
+            font-size: 1.25rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .page-close:hover {
-            background: var(--cream-dark);
         }
 
         .page-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+            padding: 1.25rem;
         }
 
-        .selection-progress {
+        /* Progress Steps */
+        .progress-steps {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .progress-step {
-            display: flex;
-            align-items: center;
             gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
             background: var(--cream-dark);
-            color: var(--text-light);
-            font-weight: 600;
-            font-size: 0.9rem;
         }
 
-        .progress-step.active {
+        .progress-dot.active {
             background: var(--forest);
-            color: var(--white);
+            width: 30px;
+            border-radius: 5px;
         }
 
-        .progress-step.completed {
-            background: var(--sage-light);
-            color: var(--forest-dark);
+        .progress-dot.completed {
+            background: var(--sage);
         }
 
         .selection-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .selection-header h3 {
-            font-size: 1.75rem;
+            font-size: 1.35rem;
             margin-bottom: 0.5rem;
         }
 
         .selection-header p {
+            font-size: 0.9rem;
             color: var(--text-light);
         }
 
         .meal-counter {
             text-align: center;
-            margin-bottom: 2rem;
-            padding: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 0.75rem 1.25rem;
             background: var(--white);
-            border-radius: 12px;
+            border-radius: 50px;
             display: inline-block;
+            font-weight: 600;
         }
 
         .meal-counter-wrap {
             text-align: center;
         }
 
-        .meal-counter span {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .meal-counter .count {
             color: var(--forest);
+            font-size: 1.1rem;
         }
 
-        .meals-selection-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+        /* Meal Cards - Mobile optimized */
+        .meals-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 100px;
         }
 
-        .meal-select-card {
+        .meal-card {
             background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 3px solid transparent;
-            position: relative;
-        }
-
-        .meal-select-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .meal-select-card.selected {
-            border-color: var(--forest);
-        }
-
-        .meal-select-card.disabled {
-            opacity: 0.5;
-            pointer-events: none;
-        }
-
-        .meal-select-image {
-            height: 180px;
-            background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%);
+            border-radius: 16px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            position: relative;
-        }
-
-        .meal-select-tag {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: var(--white);
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--forest);
-        }
-
-        .meal-quantity {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--white);
-            border-radius: 50px;
-            padding: 0.25rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .qty-btn {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: none;
-            background: var(--cream);
-            cursor: pointer;
-            font-size: 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            border: 2px solid transparent;
             transition: all 0.2s ease;
         }
 
-        .qty-btn:hover {
+        .meal-card.selected {
+            border-color: var(--forest);
+            background: rgba(45, 90, 61, 0.05);
+        }
+
+        .meal-card.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .meal-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--sage-light), var(--sage));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .meal-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .meal-tag {
+            display: inline-block;
+            background: var(--sage-light);
+            color: var(--forest);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .meal-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .meal-macros {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .meal-qty {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .qty-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: var(--cream);
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-btn:active {
             background: var(--sage-light);
         }
 
@@ -1132,85 +848,54 @@
             min-width: 24px;
             text-align: center;
             font-weight: 700;
+            font-size: 1.1rem;
             color: var(--forest);
         }
 
-        .meal-select-info {
-            padding: 1.25rem;
-        }
-
-        .meal-select-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .meal-select-macros {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-bottom: 0.75rem;
-        }
-
-        .macro {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .macro-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-        }
-
-        .macro-dot.protein { background: var(--forest); }
-        .macro-dot.carbs { background: var(--bark); }
-        .macro-dot.fat { background: var(--gold); }
-
-        .meal-select-cals {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
+        /* Fixed bottom bar */
         .selection-footer {
-            position: sticky;
+            position: fixed;
             bottom: 0;
+            left: 0;
+            right: 0;
             background: var(--white);
-            padding: 1.5rem 2rem;
-            border-top: 1px solid var(--cream-dark);
+            padding: 1rem 1.25rem;
+            padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .selection-summary {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .summary-item {
-            text-align: left;
-        }
-
-        .summary-item label {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            display: block;
-        }
-
-        .summary-item strong {
-            font-size: 1.25rem;
-            color: var(--espresso);
-        }
-
-        .selection-actions {
-            display: flex;
             gap: 1rem;
         }
 
-        /* Checkout Form Page */
+        .footer-summary {
+            font-size: 0.85rem;
+        }
+
+        .footer-summary strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--forest);
+        }
+
+        .footer-btn {
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            background: var(--forest);
+            color: var(--white);
+            border: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+
+        .footer-btn:disabled {
+            opacity: 0.5;
+        }
+
+        /* Checkout Form */
         .checkout-section {
             display: none;
         }
@@ -1219,52 +904,50 @@
             display: block;
         }
 
-        .checkout-grid {
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 2rem;
-        }
-
-        .checkout-form {
+        .form-card {
             background: var(--white);
-            padding: 2rem;
-            border-radius: 20px;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .form-section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
+        .form-title {
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
             padding-bottom: 0.75rem;
             border-bottom: 1px solid var(--cream-dark);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--text);
+            font-size: 0.9rem;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 1rem;
+            padding: 0.9rem 1rem;
             border: 2px solid var(--cream-dark);
             border-radius: 12px;
             font-size: 1rem;
             font-family: inherit;
-            transition: border-color 0.3s ease;
+            background: var(--white);
+            -webkit-appearance: none;
         }
 
         .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .form-group select:focus {
             outline: none;
             border-color: var(--forest);
         }
@@ -1272,461 +955,344 @@
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
-        .subscription-options {
+        .sub-options {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
         .sub-option {
-            flex: 1;
-            padding: 1.25rem;
+            padding: 1rem;
             border: 2px solid var(--cream-dark);
             border-radius: 12px;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .sub-option:hover {
-            border-color: var(--sage);
         }
 
         .sub-option.selected {
             border-color: var(--forest);
-            background: var(--sage-light);
+            background: rgba(45, 90, 61, 0.05);
         }
 
         .sub-option h4 {
             font-size: 1rem;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.1rem;
         }
 
         .sub-option .discount {
             color: var(--forest);
             font-weight: 700;
+            font-size: 0.9rem;
         }
 
         .sub-option p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-light);
             margin: 0;
         }
 
-        .order-summary-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 20px;
-            position: sticky;
-            top: 100px;
+        /* Order Summary */
+        .order-summary {
+            background: var(--forest);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 100px;
         }
 
-        .order-summary-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
+        .order-summary h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
         }
 
         .order-items {
-            margin-bottom: 1.5rem;
-            max-height: 300px;
+            max-height: 150px;
             overflow-y: auto;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
 
         .order-item {
             display: flex;
             justify-content: space-between;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--cream-dark);
-            font-size: 0.95rem;
-        }
-
-        .order-item:last-child {
-            border-bottom: none;
-        }
-
-        .order-totals {
-            border-top: 2px solid var(--cream-dark);
-            padding-top: 1rem;
+            font-size: 0.9rem;
+            padding: 0.4rem 0;
+            opacity: 0.9;
         }
 
         .order-total-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.75rem;
-        }
-
-        .order-total-row.discount {
-            color: var(--forest);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
         }
 
         .order-total-row.final {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
+            margin-top: 0.75rem;
             padding-top: 0.75rem;
-            border-top: 1px solid var(--cream-dark);
-            margin-top: 0.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
 
-        .checkout-btn {
-            width: 100%;
-            padding: 1.25rem;
-            background: var(--forest);
-            color: var(--white);
+        .back-btn {
+            background: none;
             border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
+            color: var(--forest);
             font-weight: 600;
+            font-size: 0.95rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            padding: 0.5rem;
             font-family: inherit;
-            margin-top: 1.5rem;
         }
 
-        .checkout-btn:hover {
-            background: var(--forest-dark);
-        }
-
-        .checkout-note {
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-top: 1rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .plans-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
+        /* Desktop Enhancements */
+        @media (min-width: 768px) {
+            nav {
+                padding: 1rem 3rem;
             }
 
-            .plan-card.featured {
-                transform: none;
-            }
-
-            .plan-card.featured:hover {
-                transform: translateY(-10px);
-            }
-
-            .meals-selection-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .checkout-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .order-summary-card {
-                position: static;
-            }
-
-            .steps-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .step-card:not(:last-child)::after {
-                display: none;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-visual {
-                order: -1;
-            }
-
-            .floating-card {
-                display: none;
-            }
-
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .meals-selection-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .selection-footer {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .selection-summary {
-                width: 100%;
-                justify-content: space-around;
-            }
-
-            .selection-actions {
-                width: 100%;
-            }
-
-            .selection-actions .btn {
-                flex: 1;
-            }
-
-            .steps-container {
-                grid-template-columns: 1fr;
-                max-width: 300px;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-brand {
-                max-width: 100%;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .subscription-options {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-buttons {
-                flex-direction: column;
+            .hero {
+                flex-direction: row;
                 align-items: center;
+                padding: 6rem 3rem;
+                gap: 4rem;
+            }
+
+            .hero-image {
+                width: 45%;
+                height: 450px;
+                order: 2;
+                margin-bottom: 0;
+            }
+
+            .hero-content {
+                width: 55%;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-cta {
+                flex-direction: row;
+                margin-top: 2rem;
             }
 
             .btn {
-                width: 100%;
-                justify-content: center;
+                width: auto;
             }
 
-            .selection-progress {
+            .stats {
+                grid-template-columns: repeat(4, 1fr);
+                padding: 3rem;
+            }
+
+            .stat-number {
+                font-size: 2.25rem;
+            }
+
+            section {
+                padding: 5rem 3rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.25rem;
+            }
+
+            .plans-grid {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+
+            .plan-card {
+                flex: 1;
+            }
+
+            .steps {
+                flex-direction: row;
+                gap: 2rem;
+            }
+
+            .step {
                 flex-direction: column;
-                align-items: center;
+                text-align: center;
+                flex: 1;
+            }
+
+            .step-number {
+                margin: 0 auto;
+            }
+
+            .testimonials {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+
+            .testimonial {
+                flex: 1;
+            }
+
+            .page-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 2rem;
+            }
+
+            .meals-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-links {
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 6rem 5rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .plans-grid {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            .meals-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                    </svg>
-                </div>
-                Maxi.Nourish
-            </a>
-            <ul class="nav-links">
-                <li><a href="#plans">Plans</a></li>
-                <li><a href="#how">How It Works</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#plans" class="nav-cta">Order Now</a></li>
-            </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+    <nav>
+        <a href="#" class="logo">Maxi.Nourish</a>
+        <a href="#plans" class="nav-cta">Order Now</a>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <span class="hero-badge">100% Organic Ingredients</span>
-                <h1>Nourish Your Body,<br><span>Elevate Your Life</span></h1>
-                <p>Chef prepared, organic, butcher grade meat, seed oil free meals delivered fresh to your door. No cooking, no counting, no compromise.</p>
-                <div class="hero-buttons">
-                    <a href="#plans" class="btn btn-primary">
-                        View Plans
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                    <a href="#how" class="btn btn-secondary">How It Works</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-image-container">
-                    <!-- REPLACE: Add your image here -->
-                    <!-- <img src="your-image.jpg" alt="Maxi.Nourish Meals"> -->
-                    <div class="hero-image" id="heroImage">🥗</div>
-                </div>
-                <div class="floating-card floating-card-1">
-                    <h4>Protein</h4>
-                    <p>45g per meal</p>
-                </div>
-                <div class="floating-card floating-card-2">
-                    <h4>Fresh Daily</h4>
-                    <p>Never Frozen</p>
-                </div>
+        <div class="hero-image" id="heroImage">
+            <!-- Replace with: <img src="your-image.jpg" alt="Maxi.Nourish Meals"> -->
+            🥗
+        </div>
+        <div class="hero-content">
+            <span class="hero-badge">🌿 100% Organic</span>
+            <h1>Nourish Your Body,<br><span>Elevate Your Life</span></h1>
+            <p>Chef prepared, organic, butcher grade meat, seed oil free meals delivered fresh to your door.</p>
+            <div class="hero-cta">
+                <a href="#plans" class="btn btn-primary">View Plans</a>
+                <a href="#how" class="btn btn-secondary">How It Works</a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Bar -->
-    <section class="stats-bar">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number">5,000+</div>
-                <div class="stat-label">Meals Delivered</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Butcher Grade Meat</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">40+</div>
-                <div class="stat-label">Meal Varieties</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Organic Ingredients</div>
-            </div>
+    <!-- Stats -->
+    <section class="stats">
+        <div class="stat">
+            <div class="stat-number">5,000+</div>
+            <div class="stat-label">Meals Delivered</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Butcher Grade</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">40+</div>
+            <div class="stat-label">Meal Varieties</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Organic</div>
         </div>
     </section>
 
-    <!-- Plans Section -->
+    <!-- Plans -->
     <section class="plans-section" id="plans">
         <div class="section-header">
-            <span class="section-tag">Choose Your Plan</span>
-            <h2>Simple, Flexible Pricing</h2>
-            <p>Select the perfect plan for your lifestyle. All plans include free delivery and the flexibility to pause or cancel anytime.</p>
+            <span class="section-tag">Plans</span>
+            <h2>Choose Your Plan</h2>
+            <p>Flexible plans. Free delivery. Cancel anytime.</p>
         </div>
 
         <div class="plans-grid">
-            <!-- Starter Plan -->
-            <div class="plan-card" data-plan="starter" data-price="50" data-meals="5">
-                <div class="plan-icon">🌱</div>
-                <h3 class="plan-title">Starter</h3>
-                <p class="plan-description">Perfect for trying us out or supplementing your meals.</p>
+            <!-- Starter -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <div class="plan-icon">🌱</div>
+                    <div class="plan-info">
+                        <h3>Starter</h3>
+                        <p>5 meals per week</p>
+                    </div>
+                </div>
                 <div class="plan-price">
                     <span class="price-amount">£50</span>
                     <span class="price-period">/week</span>
-                    <p class="price-note">Save 5% on 4 weeks • 10% on 8 weeks</p>
                 </div>
-                <ul class="features-list">
-                    <li class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        5 meals per week
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        Choose your meals
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        Free delivery
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        Pause anytime
-                    </li>
-                </ul>
-                <button class="plan-btn plan-btn-primary" onclick="openMealSelection('Starter', 50, 5)">Order Now</button>
+                <p class="price-note">Save 5% on 4 weeks • 10% on 8 weeks</p>
+                <div class="plan-features">
+                    <span class="feature-pill">Choose meals</span>
+                    <span class="feature-pill">Free delivery</span>
+                    <span class="feature-pill">Pause anytime</span>
+                </div>
+                <button class="plan-btn" onclick="openMealSelection('Starter', 50, 5)">Order Now</button>
             </div>
 
-            <!-- Performance Plan -->
-            <div class="plan-card featured" data-plan="performance" data-price="90" data-meals="10">
+            <!-- Performance -->
+            <div class="plan-card featured">
                 <span class="popular-badge">Most Popular</span>
-                <div class="plan-icon">🔥</div>
-                <h3 class="plan-title">Performance</h3>
-                <p class="plan-description">Our most popular plan for serious results.</p>
+                <div class="plan-header">
+                    <div class="plan-icon">🔥</div>
+                    <div class="plan-info">
+                        <h3>Performance</h3>
+                        <p>10 meals per week</p>
+                    </div>
+                </div>
                 <div class="plan-price">
                     <span class="price-amount">£90</span>
                     <span class="price-period">/week</span>
-                    <p class="price-note">Save 5% on 4 weeks • 10% on 8 weeks</p>
                 </div>
-                <ul class="features-list">
-                    <li class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        10 meals per week
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        Choose your meals
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        Free delivery
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        Pause anytime
-                    </li>
-                </ul>
-                <button class="plan-btn plan-btn-primary" onclick="openMealSelection('Performance', 90, 10)">Order Now</button>
+                <p class="price-note">Save 5% on 4 weeks • 10% on 8 weeks</p>
+                <div class="plan-features">
+                    <span class="feature-pill">Choose meals</span>
+                    <span class="feature-pill">Free delivery</span>
+                    <span class="feature-pill">Pause anytime</span>
+                </div>
+                <button class="plan-btn" onclick="openMealSelection('Performance', 90, 10)">Order Now</button>
             </div>
 
-            <!-- Elite Plan -->
-            <div class="plan-card" data-plan="elite" data-price="127.50" data-meals="15">
-                <div class="plan-icon">👑</div>
-                <h3 class="plan-title">Elite</h3>
-                <p class="plan-description">Complete nutrition coverage for maximum results.</p>
+            <!-- Elite -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <div class="plan-icon">👑</div>
+                    <div class="plan-info">
+                        <h3>Elite</h3>
+                        <p>15 meals per week</p>
+                    </div>
+                </div>
                 <div class="plan-price">
                     <span class="price-amount">£127.50</span>
                     <span class="price-period">/week</span>
-                    <p class="price-note">Save 5% on 4 weeks • 10% on 8 weeks</p>
                 </div>
-                <ul class="features-list">
-                    <li class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        15 meals per week
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        Choose your meals
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        Free delivery
-                    </li>
-                    <li class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        Pause anytime
-                    </li>
-                </ul>
-                <button class="plan-btn plan-btn-primary" onclick="openMealSelection('Elite', 127.50, 15)">Order Now</button>
+                <p class="price-note">Save 5% on 4 weeks • 10% on 8 weeks</p>
+                <div class="plan-features">
+                    <span class="feature-pill">Choose meals</span>
+                    <span class="feature-pill">Free delivery</span>
+                    <span class="feature-pill">Pause anytime</span>
+                </div>
+                <button class="plan-btn" onclick="openMealSelection('Elite', 127.50, 15)">Order Now</button>
             </div>
         </div>
     </section>
@@ -1734,31 +1300,38 @@
     <!-- How It Works -->
     <section class="how-section" id="how">
         <div class="section-header">
-            <span class="section-tag">Simple Process</span>
+            <span class="section-tag">Simple</span>
             <h2>How It Works</h2>
-            <p>Getting started with Maxi.Nourish takes just a few minutes.</p>
         </div>
 
-        <div class="steps-container">
-            <div class="step-card">
+        <div class="steps">
+            <div class="step">
                 <div class="step-number">1</div>
-                <h4 class="step-title">Choose Your Plan</h4>
-                <p class="step-description">Select the plan that fits your lifestyle and goals.</p>
+                <div class="step-content">
+                    <h4>Choose Plan</h4>
+                    <p>Pick the plan that fits your goals</p>
+                </div>
             </div>
-            <div class="step-card">
+            <div class="step">
                 <div class="step-number">2</div>
-                <h4 class="step-title">Pick Your Meals</h4>
-                <p class="step-description">Customize your weekly menu from our rotating selection.</p>
+                <div class="step-content">
+                    <h4>Select Meals</h4>
+                    <p>Pick your favourites each week</p>
+                </div>
             </div>
-            <div class="step-card">
+            <div class="step">
                 <div class="step-number">3</div>
-                <h4 class="step-title">We Cook & Deliver</h4>
-                <p class="step-description">Fresh meals prepared and delivered to your door.</p>
+                <div class="step-content">
+                    <h4>We Deliver</h4>
+                    <p>Fresh to your door</p>
+                </div>
             </div>
-            <div class="step-card">
+            <div class="step">
                 <div class="step-number">4</div>
-                <h4 class="step-title">Heat & Enjoy</h4>
-                <p class="step-description">Ready in 3 minutes. Restaurant quality, zero effort.</p>
+                <div class="step-content">
+                    <h4>Heat & Enjoy</h4>
+                    <p>Ready in 3 minutes</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1766,64 +1339,64 @@
     <!-- Testimonials -->
     <section class="testimonials-section">
         <div class="section-header">
-            <span class="section-tag" style="background: rgba(255,255,255,0.2); color: white;">Reviews</span>
-            <h2 style="color: white;">What Our Customers Say</h2>
+            <span class="section-tag">Reviews</span>
+            <h2>What Customers Say</h2>
         </div>
 
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
+        <div class="testimonials">
+            <div class="testimonial">
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"The quality is unmatched. As someone who trains 6 days a week, having perfectly portioned, macro-balanced meals has been a game changer for my performance."</p>
+                <p class="testimonial-text">"The quality is unmatched. Having macro-balanced meals has been a game changer for my training."</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">JT</div>
-                    <div class="author-info">
-                        <h4>James T.</h4>
-                        <p>Fitness Coach</p>
+                    <div>
+                        <div class="author-name">James T.</div>
+                        <div class="author-role">Fitness Coach</div>
                     </div>
                 </div>
             </div>
 
-            <div class="testimonial-card">
+            <div class="testimonial">
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Finally found a meal prep that doesn't taste like meal prep. The Thai Green Curry is honestly better than most restaurants. Plus the convenience is unreal."</p>
+                <p class="testimonial-text">"Finally meal prep that doesn't taste like meal prep. The Thai Green Curry is better than restaurants."</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">SK</div>
-                    <div class="author-info">
-                        <h4>Sophie K.</h4>
-                        <p>Marketing Director</p>
+                    <div>
+                        <div class="author-name">Sophie K.</div>
+                        <div class="author-role">Marketing Director</div>
                     </div>
                 </div>
             </div>
 
-            <div class="testimonial-card">
+            <div class="testimonial">
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Lost 8kg in 2 months without feeling like I was on a diet. The variety keeps things interesting and the portion sizes are actually satisfying."</p>
+                <p class="testimonial-text">"Lost 8kg in 2 months without feeling like I was dieting. The variety keeps things interesting."</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">MR</div>
-                    <div class="author-info">
-                        <h4>Marcus R.</h4>
-                        <p>Software Engineer</p>
+                    <div>
+                        <div class="author-name">Marcus R.</div>
+                        <div class="author-role">Software Engineer</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ -->
     <section class="faq-section" id="faq">
         <div class="section-header">
             <span class="section-tag">FAQ</span>
-            <h2>Common Questions</h2>
+            <h2>Questions</h2>
         </div>
 
-        <div class="faq-container">
+        <div class="faq-list">
             <div class="faq-item">
                 <button class="faq-question">
-                    How does the subscription work?
+                    How does subscription work?
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    <p>Choose your plan and select your meals each week before Friday. We'll automatically prepare and deliver your order. You can pause, skip, or cancel anytime with no fees or commitments. Subscribe for 4 weeks and save 5%, or 8 weeks and save 10%.</p>
+                    <p>Choose your plan, select meals before Friday each week. Pause or cancel anytime. 5% off for 4 weeks, 10% off for 8 weeks.</p>
                 </div>
             </div>
 
@@ -1833,429 +1406,322 @@
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    <p>We deliver to Ormskirk, Liverpool and surrounding areas on Sunday. Manchester city centre deliveries are on Monday. You'll receive your meals fresh and ready to heat.</p>
+                    <p>Ormskirk, Liverpool & wider areas on Sunday. Manchester city centre on Monday.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question">
-                    How long do the meals last?
+                    How long do meals last?
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    <p>All meals stay fresh in your fridge for 5 days. They can also be frozen for up to 3 months if you want to stock up. Reheating takes just 3 minutes in the microwave.</p>
+                    <p>5 days fresh in fridge. Up to 3 months frozen. Heat in 3 minutes.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question">
-                    Do you cater for dietary requirements?
+                    Dietary requirements?
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    <p>All our meat is 100% halal. We can accommodate gluten-free and dairy-free requirements on request. We also cater for Crohn's, IBS and FODMAP diet requirements – just let us know when ordering.</p>
+                    <p>All meat is 100% halal. Gluten-free, dairy-free, Crohn's, IBS and FODMAP diets on request.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question">
-                    Can I change my meals each week?
+                    Can I change meals weekly?
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    <p>Yes! You can customize your meal selection every week before the Friday cut-off. If you don't select your meals, you'll receive our 5 chef's picks for the week.</p>
+                    <p>Yes! Customise before Friday. If you don't select, you'll get our 5 chef's picks.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="cta-section">
-        <div class="cta-container">
-            <h2>Ready to Transform Your Nutrition?</h2>
-            <p>Join thousands of customers who've made healthy eating effortless.</p>
-            <a href="#plans" class="btn cta-btn">Start Your Journey</a>
-        </div>
+        <h2>Ready to Start?</h2>
+        <p>Healthy eating made effortless.</p>
+        <a href="#plans" class="btn cta-btn">View Plans</a>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-brand">
-                <div class="footer-logo">Maxi.Nourish</div>
-                <p>Premium meal prep delivered fresh to your door. Nourish your body, elevate your life.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link">📸</a>
-                    <a href="#" class="social-link">🐦</a>
-                    <a href="#" class="social-link">📘</a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h4>Plans</h4>
-                <ul>
-                    <li><a href="#">Starter</a></li>
-                    <li><a href="#">Performance</a></li>
-                    <li><a href="#">Elite</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Chefs</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Delivery Info</a></li>
-                    <li><a href="#">Terms & Privacy</a></li>
-                </ul>
-            </div>
+        <div class="footer-logo">Maxi.Nourish</div>
+        <p class="footer-tagline">Premium meal prep delivered fresh.</p>
+        <div class="social-links">
+            <a href="#" class="social-link">📸</a>
+            <a href="#" class="social-link">📘</a>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Maxi.Nourish. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#faq">FAQ</a>
+            <a href="#">Terms</a>
         </div>
+        <div class="footer-bottom">© 2024 Maxi.Nourish</div>
     </footer>
 
-    <!-- Meal Selection & Checkout Overlay -->
+    <!-- Order Page -->
     <div class="page-overlay" id="orderPage">
         <div class="page-header">
-            <h2 id="pageTitle">Select Your Meals</h2>
+            <button class="back-btn" onclick="closePage()">← Back</button>
+            <h2 id="pageTitle">Select Meals</h2>
             <button class="page-close" onclick="closePage()">×</button>
         </div>
 
-        <!-- Step 1: Meal Selection -->
-        <div class="page-content" id="mealSelectionStep">
-            <div class="selection-progress">
-                <div class="progress-step active" data-step="1">1. Choose Meals</div>
-                <div class="progress-step" data-step="2">2. Your Details</div>
-                <div class="progress-step" data-step="3">3. Confirm Order</div>
+        <!-- Step 1: Meals -->
+        <div class="page-content" id="mealStep">
+            <div class="progress-steps">
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
             </div>
 
             <div class="selection-header">
-                <h3>Choose Your <span id="planName">Performance</span> Meals</h3>
-                <p>Select <span id="mealsRequired">10</span> meals from our menu. Using only butcher grade meat, organic vegetables, and seed oil free ingredients.</p>
+                <h3><span id="planName">Performance</span></h3>
+                <p>Select <span id="mealsRequired">10</span> meals. Butcher grade meat, organic veg, seed oil free.</p>
             </div>
 
             <div class="meal-counter-wrap">
                 <div class="meal-counter">
-                    <span id="selectedCount">0</span> / <span id="totalMeals">10</span> meals selected
+                    <span class="count" id="selectedCount">0</span> / <span id="totalMeals">10</span> selected
                 </div>
             </div>
 
-            <div class="meals-selection-grid" id="mealsGrid">
-                <!-- Meals will be populated by JavaScript -->
-            </div>
+            <div class="meals-grid" id="mealsGrid"></div>
 
             <div class="selection-footer">
-                <div class="selection-summary">
-                    <div class="summary-item">
-                        <label>Plan</label>
-                        <strong id="summaryPlanName">Performance</strong>
-                    </div>
-                    <div class="summary-item">
-                        <label>Weekly Price</label>
-                        <strong>£<span id="summaryPrice">90</span></strong>
-                    </div>
+                <div class="footer-summary">
+                    <span>Weekly</span>
+                    <strong>£<span id="summaryPrice">90</span></strong>
                 </div>
-                <div class="selection-actions">
-                    <button class="btn btn-secondary" onclick="closePage()">Cancel</button>
-                    <button class="btn btn-primary" onclick="goToCheckout()" id="continueBtn" disabled>Continue to Details</button>
-                </div>
+                <button class="footer-btn" id="continueBtn" onclick="goToCheckout()" disabled>Continue</button>
             </div>
         </div>
 
-        <!-- Step 2: Checkout Form -->
+        <!-- Step 2: Details -->
         <div class="page-content checkout-section" id="checkoutStep">
-            <div class="selection-progress">
-                <div class="progress-step completed" data-step="1">1. Choose Meals ✓</div>
-                <div class="progress-step active" data-step="2">2. Your Details</div>
-                <div class="progress-step" data-step="3">3. Confirm Order</div>
+            <div class="progress-steps">
+                <div class="progress-dot completed"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
             </div>
 
-            <div class="checkout-grid">
-                <div class="checkout-form">
-                    <h3 class="form-section-title">Your Details</h3>
-                    
-                    <form id="checkoutForm" onsubmit="handleOrder(event)">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text" required placeholder="John">
-                            </div>
-                            <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text" required placeholder="Smith">
-                            </div>
-                        </div>
-
+            <form id="checkoutForm" onsubmit="handleOrder(event)">
+                <div class="form-card">
+                    <h4 class="form-title">Your Details</h4>
+                    <div class="form-row">
                         <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" required placeholder="john@example.com">
+                            <label>First Name</label>
+                            <input type="text" required placeholder="John">
                         </div>
-
                         <div class="form-group">
-                            <label>Phone Number</label>
-                            <input type="tel" required placeholder="07XXX XXXXXX">
+                            <label>Last Name</label>
+                            <input type="text" required placeholder="Smith">
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" required placeholder="07XXX XXXXXX">
+                    </div>
+                </div>
 
-                        <h3 class="form-section-title">Delivery Details</h3>
-
+                <div class="form-card">
+                    <h4 class="form-title">Delivery</h4>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" required placeholder="123 Main Street">
+                    </div>
+                    <div class="form-row">
                         <div class="form-group">
-                            <label>Delivery Address</label>
-                            <input type="text" required placeholder="123 Main Street">
+                            <label>City</label>
+                            <input type="text" required placeholder="Liverpool">
                         </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>City</label>
-                                <input type="text" required placeholder="Liverpool">
-                            </div>
-                            <div class="form-group">
-                                <label>Postcode</label>
-                                <input type="text" required placeholder="L1 1AA">
-                            </div>
-                        </div>
-
                         <div class="form-group">
-                            <label>Delivery Day</label>
-                            <select required>
-                                <option value="">Select your area</option>
-                                <option value="sunday">Sunday (Ormskirk / Liverpool / Wider Areas)</option>
-                                <option value="monday">Monday (Manchester City Centre)</option>
-                            </select>
+                            <label>Postcode</label>
+                            <input type="text" required placeholder="L1 1AA">
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Delivery Day</label>
+                        <select required>
+                            <option value="">Select area</option>
+                            <option value="sunday">Sunday - Liverpool / Ormskirk</option>
+                            <option value="monday">Monday - Manchester</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Dietary Requirements</label>
+                        <select>
+                            <option value="none">None</option>
+                            <option value="gluten-free">Gluten Free</option>
+                            <option value="dairy-free">Dairy Free</option>
+                            <option value="crohns">Crohn's</option>
+                            <option value="ibs">IBS</option>
+                            <option value="fodmap">FODMAP</option>
+                        </select>
+                    </div>
+                </div>
 
-                        <div class="form-group">
-                            <label>Dietary Requirements</label>
-                            <select>
-                                <option value="none">None</option>
-                                <option value="gluten-free">Gluten Free</option>
-                                <option value="dairy-free">Dairy Free</option>
-                                <option value="crohns">Crohn's Diet</option>
-                                <option value="ibs">IBS Diet</option>
-                                <option value="fodmap">FODMAP Diet</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Additional Notes (optional)</label>
-                            <textarea rows="3" placeholder="Any allergies or special requests..."></textarea>
-                        </div>
-
-                        <h3 class="form-section-title">Subscription Length</h3>
-                        
-                        <div class="subscription-options">
-                            <div class="sub-option" data-weeks="1" onclick="selectSubscription(this, 1, 0)">
+                <div class="form-card">
+                    <h4 class="form-title">Subscription</h4>
+                    <div class="sub-options">
+                        <div class="sub-option" onclick="selectSub(this, 1, 0)">
+                            <div>
                                 <h4>Weekly</h4>
                                 <p>Pay as you go</p>
                             </div>
-                            <div class="sub-option selected" data-weeks="4" onclick="selectSubscription(this, 4, 5)">
+                        </div>
+                        <div class="sub-option selected" onclick="selectSub(this, 4, 5)">
+                            <div>
                                 <h4>4 Weeks</h4>
-                                <p class="discount">Save 5%</p>
+                                <p>Commit & save</p>
                             </div>
-                            <div class="sub-option" data-weeks="8" onclick="selectSubscription(this, 8, 10)">
+                            <span class="discount">Save 5%</span>
+                        </div>
+                        <div class="sub-option" onclick="selectSub(this, 8, 10)">
+                            <div>
                                 <h4>8 Weeks</h4>
-                                <p class="discount">Save 10%</p>
+                                <p>Best value</p>
                             </div>
+                            <span class="discount">Save 10%</span>
                         </div>
-                    </form>
+                    </div>
                 </div>
 
-                <div class="order-summary-card">
+                <div class="order-summary">
                     <h3>Order Summary</h3>
-                    
-                    <div class="order-items" id="orderItems">
-                        <!-- Populated by JavaScript -->
+                    <div class="order-items" id="orderItems"></div>
+                    <div class="order-total-row">
+                        <span>Subtotal</span>
+                        <span>£<span id="orderSubtotal">90</span></span>
                     </div>
-
-                    <div class="order-totals">
-                        <div class="order-total-row">
-                            <span>Subtotal (per week)</span>
-                            <span>£<span id="orderSubtotal">90</span></span>
-                        </div>
-                        <div class="order-total-row discount" id="discountRow" style="display: none;">
-                            <span>Discount (<span id="discountPercent">5</span>%)</span>
-                            <span>-£<span id="discountAmount">4.50</span></span>
-                        </div>
-                        <div class="order-total-row">
-                            <span>Delivery</span>
-                            <span>Free</span>
-                        </div>
-                        <div class="order-total-row final">
-                            <span>Weekly Total</span>
-                            <span>£<span id="orderTotal">90</span></span>
-                        </div>
+                    <div class="order-total-row" id="discountRow" style="display: none;">
+                        <span>Discount (<span id="discountPercent">5</span>%)</span>
+                        <span>-£<span id="discountAmount">4.50</span></span>
                     </div>
-
-                    <button type="submit" form="checkoutForm" class="checkout-btn">
-                        Confirm Order →
-                    </button>
-                    <p class="checkout-note">You can customise your meals each week before Friday</p>
+                    <div class="order-total-row">
+                        <span>Delivery</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="order-total-row final">
+                        <span>Weekly Total</span>
+                        <span>£<span id="orderTotal">90</span></span>
+                    </div>
                 </div>
-            </div>
+            </form>
 
             <div class="selection-footer">
-                <div></div>
-                <div class="selection-actions">
-                    <button class="btn btn-secondary" onclick="goBackToMeals()">← Back to Meals</button>
-                </div>
+                <button class="back-btn" onclick="goBackToMeals()">← Back</button>
+                <button class="footer-btn" type="submit" form="checkoutForm">Confirm Order</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // FAQ accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
+        // FAQ
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
                 const wasActive = item.classList.contains('active');
-                
-                document.querySelectorAll('.faq-item').forEach(faq => {
-                    faq.classList.remove('active');
-                });
-                
-                if (!wasActive) {
-                    item.classList.add('active');
-                }
+                document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
+                if (!wasActive) item.classList.add('active');
             });
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Meal data
+        // Meals data
         const meals = [
-            { name: 'Grilled Chicken & Sweet Potato', tag: 'High Protein', emoji: '🍗', protein: 48, carbs: 35, fat: 12, cals: 440 },
-            { name: 'Teriyaki Salmon Bowl', tag: 'Omega Rich', emoji: '🐟', protein: 42, carbs: 38, fat: 18, cals: 485 },
-            { name: 'Lean Steak & Quinoa', tag: 'Muscle Gain', emoji: '🥩', protein: 52, carbs: 40, fat: 16, cals: 510 },
-            { name: 'Thai Green Curry', tag: 'Low Carb', emoji: '🍛', protein: 38, carbs: 22, fat: 14, cals: 365 },
-            { name: 'Spiced Lamb Kofta', tag: 'Halal', emoji: '🌮', protein: 46, carbs: 32, fat: 16, cals: 455 },
-            { name: 'Honey Chilli Chicken', tag: 'Comfort', emoji: '🍲', protein: 40, carbs: 48, fat: 10, cals: 440 },
-            { name: 'Mediterranean Chicken', tag: 'Heart Healthy', emoji: '🥙', protein: 44, carbs: 30, fat: 14, cals: 420 },
-            { name: 'Butter Chicken', tag: 'Classic', emoji: '🍛', protein: 42, carbs: 35, fat: 18, cals: 470 },
-            { name: 'Jerk Chicken & Rice', tag: 'Caribbean', emoji: '🍗', protein: 45, carbs: 42, fat: 12, cals: 455 },
-            { name: 'Beef Stroganoff', tag: 'Rich', emoji: '🥘', protein: 48, carbs: 38, fat: 16, cals: 485 },
-            { name: 'Chicken Shawarma Bowl', tag: 'Middle Eastern', emoji: '🥗', protein: 44, carbs: 36, fat: 14, cals: 445 },
-            { name: 'Lamb Tagine', tag: 'Moroccan', emoji: '🍲', protein: 40, carbs: 42, fat: 15, cals: 460 },
+            { name: 'Grilled Chicken & Sweet Potato', tag: 'High Protein', emoji: '🍗', protein: 48, carbs: 35 },
+            { name: 'Teriyaki Salmon Bowl', tag: 'Omega Rich', emoji: '🐟', protein: 42, carbs: 38 },
+            { name: 'Lean Steak & Quinoa', tag: 'Muscle Gain', emoji: '🥩', protein: 52, carbs: 40 },
+            { name: 'Thai Green Curry', tag: 'Low Carb', emoji: '🍛', protein: 38, carbs: 22 },
+            { name: 'Spiced Lamb Kofta', tag: 'Halal', emoji: '🌮', protein: 46, carbs: 32 },
+            { name: 'Honey Chilli Chicken', tag: 'Comfort', emoji: '🍲', protein: 40, carbs: 48 },
+            { name: 'Mediterranean Chicken', tag: 'Heart Healthy', emoji: '🥙', protein: 44, carbs: 30 },
+            { name: 'Butter Chicken', tag: 'Classic', emoji: '🍛', protein: 42, carbs: 35 },
+            { name: 'Jerk Chicken & Rice', tag: 'Caribbean', emoji: '🍗', protein: 45, carbs: 42 },
+            { name: 'Beef Stroganoff', tag: 'Rich', emoji: '🥘', protein: 48, carbs: 38 },
+            { name: 'Chicken Shawarma Bowl', tag: 'Middle Eastern', emoji: '🥗', protein: 44, carbs: 36 },
+            { name: 'Lamb Tagine', tag: 'Moroccan', emoji: '🍲', protein: 40, carbs: 42 },
         ];
 
-        // Order state
-        let orderState = {
-            plan: '',
-            basePrice: 0,
-            mealsRequired: 0,
-            selectedMeals: {},
-            discountPercent: 5,
-            weeks: 4
-        };
+        let order = { plan: '', price: 0, meals: 0, selected: {}, discount: 5, weeks: 4 };
 
-        // Populate meals grid
-        function populateMealsGrid() {
+        function renderMeals() {
             const grid = document.getElementById('mealsGrid');
             grid.innerHTML = '';
+            const total = Object.values(order.selected).reduce((a, b) => a + b, 0);
 
-            meals.forEach((meal, index) => {
-                const count = orderState.selectedMeals[index] || 0;
-                const totalSelected = Object.values(orderState.selectedMeals).reduce((a, b) => a + b, 0);
-                const isDisabled = count === 0 && totalSelected >= orderState.mealsRequired;
-
+            meals.forEach((m, i) => {
+                const count = order.selected[i] || 0;
+                const disabled = count === 0 && total >= order.meals;
                 grid.innerHTML += `
-                    <div class="meal-select-card ${count > 0 ? 'selected' : ''} ${isDisabled ? 'disabled' : ''}" data-index="${index}">
-                        <div class="meal-select-image">
-                            ${meal.emoji}
-                            <span class="meal-select-tag">${meal.tag}</span>
-                            <div class="meal-quantity">
-                                <button class="qty-btn" onclick="event.stopPropagation(); updateMealQty(${index}, -1)">−</button>
-                                <span class="qty-count">${count}</span>
-                                <button class="qty-btn" onclick="event.stopPropagation(); updateMealQty(${index}, 1)">+</button>
-                            </div>
+                    <div class="meal-card ${count > 0 ? 'selected' : ''} ${disabled ? 'disabled' : ''}">
+                        <div class="meal-image">${m.emoji}</div>
+                        <div class="meal-info">
+                            <span class="meal-tag">${m.tag}</span>
+                            <div class="meal-name">${m.name}</div>
+                            <div class="meal-macros">${m.protein}g protein • ${m.carbs}g carbs</div>
                         </div>
-                        <div class="meal-select-info">
-                            <h4 class="meal-select-name">${meal.name}</h4>
-                            <div class="meal-select-macros">
-                                <span class="macro"><span class="macro-dot protein"></span>${meal.protein}g protein</span>
-                                <span class="macro"><span class="macro-dot carbs"></span>${meal.carbs}g carbs</span>
-                            </div>
-                            <p class="meal-select-cals">${meal.cals} calories</p>
+                        <div class="meal-qty">
+                            <button class="qty-btn" onclick="updateQty(${i}, -1)">−</button>
+                            <span class="qty-count">${count}</span>
+                            <button class="qty-btn" onclick="updateQty(${i}, 1)">+</button>
                         </div>
                     </div>
                 `;
             });
         }
 
-        function updateMealQty(index, delta) {
-            const current = orderState.selectedMeals[index] || 0;
-            const totalSelected = Object.values(orderState.selectedMeals).reduce((a, b) => a + b, 0);
+        function updateQty(i, delta) {
+            const current = order.selected[i] || 0;
+            const total = Object.values(order.selected).reduce((a, b) => a + b, 0);
             const newQty = current + delta;
 
             if (newQty < 0) return;
-            if (delta > 0 && totalSelected >= orderState.mealsRequired) return;
+            if (delta > 0 && total >= order.meals) return;
 
-            if (newQty === 0) {
-                delete orderState.selectedMeals[index];
-            } else {
-                orderState.selectedMeals[index] = newQty;
-            }
+            if (newQty === 0) delete order.selected[i];
+            else order.selected[i] = newQty;
 
-            updateSelectionUI();
+            updateUI();
         }
 
-        function updateSelectionUI() {
-            const totalSelected = Object.values(orderState.selectedMeals).reduce((a, b) => a + b, 0);
-            document.getElementById('selectedCount').textContent = totalSelected;
-            
-            const continueBtn = document.getElementById('continueBtn');
-            continueBtn.disabled = totalSelected < orderState.mealsRequired;
-
-            populateMealsGrid();
+        function updateUI() {
+            const total = Object.values(order.selected).reduce((a, b) => a + b, 0);
+            document.getElementById('selectedCount').textContent = total;
+            document.getElementById('continueBtn').disabled = total < order.meals;
+            renderMeals();
         }
 
         function openMealSelection(plan, price, meals) {
-            orderState = {
-                plan: plan,
-                basePrice: price,
-                mealsRequired: meals,
-                selectedMeals: {},
-                discountPercent: 5,
-                weeks: 4
-            };
-
+            order = { plan, price, meals, selected: {}, discount: 5, weeks: 4 };
             document.getElementById('planName').textContent = plan;
             document.getElementById('mealsRequired').textContent = meals;
             document.getElementById('totalMeals').textContent = meals;
-            document.getElementById('summaryPlanName').textContent = plan;
             document.getElementById('summaryPrice').textContent = price;
             document.getElementById('selectedCount').textContent = '0';
 
-            populateMealsGrid();
-
-            document.getElementById('mealSelectionStep').style.display = 'block';
+            renderMeals();
+            document.getElementById('mealStep').style.display = 'block';
             document.getElementById('checkoutStep').classList.remove('active');
             document.getElementById('orderPage').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -2267,65 +1733,52 @@
         }
 
         function goToCheckout() {
-            document.getElementById('mealSelectionStep').style.display = 'none';
+            document.getElementById('mealStep').style.display = 'none';
             document.getElementById('checkoutStep').classList.add('active');
-            document.getElementById('pageTitle').textContent = 'Complete Your Order';
+            document.getElementById('pageTitle').textContent = 'Your Details';
 
-            // Populate order items
-            const orderItems = document.getElementById('orderItems');
-            orderItems.innerHTML = '';
-            
-            for (const [index, qty] of Object.entries(orderState.selectedMeals)) {
-                const meal = meals[index];
-                orderItems.innerHTML += `
-                    <div class="order-item">
-                        <span>${meal.name}</span>
-                        <span>×${qty}</span>
-                    </div>
-                `;
+            const items = document.getElementById('orderItems');
+            items.innerHTML = '';
+            for (const [i, qty] of Object.entries(order.selected)) {
+                items.innerHTML += `<div class="order-item"><span>${meals[i].name}</span><span>×${qty}</span></div>`;
             }
-
-            updateOrderTotals();
+            updateTotals();
         }
 
         function goBackToMeals() {
             document.getElementById('checkoutStep').classList.remove('active');
-            document.getElementById('mealSelectionStep').style.display = 'block';
-            document.getElementById('pageTitle').textContent = 'Select Your Meals';
+            document.getElementById('mealStep').style.display = 'block';
+            document.getElementById('pageTitle').textContent = 'Select Meals';
         }
 
-        function selectSubscription(el, weeks, discount) {
-            document.querySelectorAll('.sub-option').forEach(opt => opt.classList.remove('selected'));
+        function selectSub(el, weeks, discount) {
+            document.querySelectorAll('.sub-option').forEach(o => o.classList.remove('selected'));
             el.classList.add('selected');
-            
-            orderState.weeks = weeks;
-            orderState.discountPercent = discount;
-            
-            updateOrderTotals();
+            order.weeks = weeks;
+            order.discount = discount;
+            updateTotals();
         }
 
-        function updateOrderTotals() {
-            const subtotal = orderState.basePrice;
-            const discountAmount = subtotal * (orderState.discountPercent / 100);
-            const total = subtotal - discountAmount;
+        function updateTotals() {
+            const sub = order.price;
+            const disc = sub * (order.discount / 100);
+            const total = sub - disc;
 
-            document.getElementById('orderSubtotal').textContent = subtotal.toFixed(2);
-            
-            const discountRow = document.getElementById('discountRow');
-            if (orderState.discountPercent > 0) {
-                discountRow.style.display = 'flex';
-                document.getElementById('discountPercent').textContent = orderState.discountPercent;
-                document.getElementById('discountAmount').textContent = discountAmount.toFixed(2);
+            document.getElementById('orderSubtotal').textContent = sub.toFixed(2);
+            const discRow = document.getElementById('discountRow');
+            if (order.discount > 0) {
+                discRow.style.display = 'flex';
+                document.getElementById('discountPercent').textContent = order.discount;
+                document.getElementById('discountAmount').textContent = disc.toFixed(2);
             } else {
-                discountRow.style.display = 'none';
+                discRow.style.display = 'none';
             }
-
             document.getElementById('orderTotal').textContent = total.toFixed(2);
         }
 
         function handleOrder(e) {
             e.preventDefault();
-            alert('Thank you for your order! You will receive a confirmation email shortly with login details to manage your weekly meals.');
+            alert('Thank you! You\'ll receive a confirmation email with your account login.');
             closePage();
         }
     </script>
